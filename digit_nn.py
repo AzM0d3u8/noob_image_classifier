@@ -67,7 +67,7 @@ def backward(X, y, z1, a1, z2, a2, lr=0.1):
     b2 -= lr * db2
 
 # Train loop
-def train(epochs=100):
+def train(epochs=1000):
     for epoch in range(epochs):
         z1, a1, z2, a2 = forward(X_train)
         loss = compute_loss(y_train, a2)
