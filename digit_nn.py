@@ -65,8 +65,25 @@ def backward(X, y, z1, a1, z2, a2, lr=0.1):
     b1 -= lr * db1
     W2 -= lr * dW2
     b2 -= lr * db2
+def per_class_accuracy(y_true, y_pred):
+    true_labels = np.argmax(y_true, axis=1)
+    pred_labels = np.argmax(y_pred, axis=1)
+    class_correct = np.zeros(10)
+    class_total = np.zeros(10)
 
-# Train loop
+    for i in range(len(true_labels)):
+        label = true_labels[i]
+        if pred_labels[i] == label:
+            class_correct[label] += 1
+        class_total[label] += 1
+
+    for digit in range(10):
+        if class_total[digit] > 0:
+            acc = class_correct[digit] / class_total[digit]
+            print(f"Digit {digit}: {acc:.4f} accuracy ({int(class_correct[digit])}/{int(class_total[digit])})")
+        else:
+            print(f"Digit {digit}: No samples")
+
 def train(epochs=1000):
     for epoch in range(epochs):
         z1, a1, z2, a2 = forward(X_train)
@@ -79,4 +96,6 @@ def train(epochs=1000):
 if __name__ == "__main__":
     train()
     _, _, _, test_pred = forward(X_test)
-    print("Test accuracy:", accuracy(y_test, test_pred))
+    print("Overall test accuracy:", accuracy(y_test, test_pred))
+    print("\nPer-class accuracy:")
+    per_class_accuracy(y_test, test_pred)
