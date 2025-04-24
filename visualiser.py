@@ -1,5 +1,5 @@
 
-# Ensure matplotlib is installed by running: pip install matplotlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.datasets import load_digits
@@ -60,7 +60,7 @@ def backward(X, y, z1, a1, z2, a2, lr=0.1):
     W2 -= lr * dW2
     b2 -= lr * db2
 
-# Train for 300 epochs
+# Train for 1000 epochs
 for epoch in range(1000):
     z1, a1, z2, a2 = forward(X_train)
     backward(X_train, y_train, z1, a1, z2, a2)
