@@ -11,11 +11,11 @@ This is a simple neural network built from scratch using NumPy to classify digit
   
 ## Architecture
 
-Input Layer (64 neurons)
-       ↓
-Hidden Layer (32 neurons, ReLU activation)
-       ↓
-Output Layer (10 neurons, Softmax activation)
+- Input Layer (64 neurons)
+       
+- Hidden Layer (32 neurons, ReLU activation)
+       
+- Output Layer (10 neurons, Softmax activation)
 
 ## How to Run
 
