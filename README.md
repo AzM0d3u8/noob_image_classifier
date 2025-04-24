@@ -8,6 +8,14 @@ This is a simple neural network built from scratch using NumPy to classify digit
 - Softmax output layer (10 units for digits 0-9)
 - One-hot encoded labels
 - Manual forward and backward propagation
+  
+## Architecture
+
+Input Layer (64 neurons)
+       ↓
+Hidden Layer (32 neurons, ReLU activation)
+       ↓
+Output Layer (10 neurons, Softmax activation)
 
 ## How to Run
 
